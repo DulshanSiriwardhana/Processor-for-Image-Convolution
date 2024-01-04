@@ -1,0 +1,131 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/User/OneDrive/Desktop/Practice
+vUART_RX
+!s110 1704366690
+!i10b 1
+!s100 A@IImJRVJNlU?ni^`zjYa2
+Z0 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IOk3WBBl=3?IZa6[32Ozzj1
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dC:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution
+w1704366674
+8C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/UART_Rx.v
+FC:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/UART_Rx.v
+!i122 0
+L0 12 124
+Z3 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z4 !s108 1704366690.000000
+!s107 C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/UART_Rx.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/UART_Rx.v|
+!i113 1
+Z5 o-work work
+Z6 tCvgOpt 0
+n@u@a@r@t_@r@x
+vUART_RX_TB
+!s110 1704366691
+!i10b 1
+!s100 PXWcUbiYTB[6WkD6jcgUX2
+R0
+Io<Q2;<07FP1HT3hfJE>5i1
+R1
+R2
+w1704366670
+8C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/UART_Rx_TB.v
+FC:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/UART_Rx_TB.v
+!i122 2
+L0 6 74
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/UART_Rx_TB.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/UART_Rx_TB.v|
+!i113 1
+R5
+R6
+n@u@a@r@t_@r@x_@t@b
+vUART_TB
+Z7 !s110 1704375444
+!i10b 1
+!s100 7nB`^oN=0DConI_DeOOfh0
+R0
+Ig7cIRYNU38eDnM;IL65NS2
+R1
+R2
+w1704375436
+8C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/UART_TB.v
+FC:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/UART_TB.v
+!i122 4
+L0 7 66
+R3
+r1
+!s85 0
+31
+Z8 !s108 1704375444.000000
+Z9 !s107 UART_TX.v|C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/UART_TB.v|
+Z10 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/UART_TB.v|
+!i113 1
+R5
+R6
+n@u@a@r@t_@t@b
+vUART_TX
+R7
+!i10b 1
+!s100 lhPkKV`?EWY[OEE5MJI522
+R0
+ICXVCA@MBO8PCe?ezbVc301
+R1
+R2
+w1704366677
+8UART_TX.v
+FUART_TX.v
+!i122 4
+L0 12 130
+R3
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 1
+R5
+R6
+n@u@a@r@t_@t@x
+vUART_TX_TB
+!s110 1704376106
+!i10b 1
+!s100 :3?SFXoEFYn8b[ZShT5eB1
+R0
+IKhAFHN>mJ9<FG?`ZY6oFF2
+R1
+R2
+w1704376099
+8C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/UART_Tx_TB.v
+FC:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/UART_Tx_TB.v
+!i122 5
+L0 4 58
+R3
+r1
+!s85 0
+31
+!s108 1704376105.000000
+!s107 C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/UART_Tx_TB.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/UART_Tx_TB.v|
+!i113 1
+R5
+R6
+n@u@a@r@t_@t@x_@t@b

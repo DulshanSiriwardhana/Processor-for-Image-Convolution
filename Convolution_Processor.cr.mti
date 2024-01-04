@@ -1,0 +1,37 @@
+{C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/UART_Tx.v} {1 {vlog -work work -stats=none {C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/UART_Tx.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module UART_TX
+
+Top level modules:
+	UART_TX
+
+} {} {}} {C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/UART_Tx_TB.v} {1 {vlog -work work -stats=none {C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/UART_Tx_TB.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module UART_TX_TB
+
+Top level modules:
+	UART_TX_TB
+
+} {} {}} {C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/UART_Rx.v} {1 {vlog -work work -stats=none {C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/UART_Rx.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module UART_RX
+
+Top level modules:
+	UART_RX
+
+} {} {}} {C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/UART_TB.v} {1 {vlog -work work -stats=none {C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/UART_TB.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module UART_TX
+-- Compiling module UART_TB
+
+Top level modules:
+	UART_TB
+
+} {} {}} {C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/UART_Rx_TB.v} {1 {vlog -work work -stats=none {C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/UART_Rx_TB.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module UART_RX_TB
+
+Top level modules:
+	UART_RX_TB
+
+} {} {}}

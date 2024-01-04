@@ -1,0 +1,15 @@
+# Load canceled
+# Compile of UART_Tx_TB.v was successful.
+vsim -gui work.UART_TX_TB
+# vsim -gui work.UART_TX_TB 
+# Start time: 19:18:46 on Jan 04,2024
+# Loading work.UART_TX_TB
+# Loading work.UART_TX
+run
+# Transmission Completed - TX Done asserted
+# ** Note: $finish    : C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/UART_Tx_TB.v(58)
+#    Time: 87030 ns  Iteration: 0  Instance: /UART_TX_TB
+# 1
+# Break in Module UART_TX_TB at C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/UART_Tx_TB.v line 58
+# End time: 19:19:57 on Jan 04,2024, Elapsed time: 0:01:11
+# Errors: 0, Warnings: 3
