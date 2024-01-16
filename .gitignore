@@ -2,4 +2,5 @@ work/
 transcript
 *.mti
 *.mpf
-
+*.bak
+*.wlf
