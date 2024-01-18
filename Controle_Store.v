@@ -18,7 +18,7 @@ reg check = 1'b0;
 assign finish = check ;
 
 // parameters
-parameter FETCH1 = 6'd0;
+parameter FETCH2 = 6'd1;
 
 parameter JUMPNZ = 6'd47;
 parameter JUMPZ = 6'd52;
@@ -45,9 +45,9 @@ always@ ( posedge enable )
 always@(posedge clk)
 	begin
 		case(control_signal[37:32])
-		FETCH1:
+		FETCH2:
 			begin
-			control_signal = {MBRU, ROM[FETCH1][31:0]};
+			control_signal = {MBRU, ROM[FETCH2][31:0]};
 			end
 		JUMPNZ:
 			begin
@@ -74,7 +74,7 @@ initial
 begin
 
 ROM[0] = 38'b000001_0000_0000000000000000000_100_0_00000; //FETCH1
-ROM[1] = 38'b000000_0000_0000000000000000000_000_1_00000; //FETCH2
+ROM[1] = 38'bxxxxxx_0000_0000000000000000000_000_1_00000; //FETCH2
 ROM[2] = 38'b000000_1001_0000000000000000001_000_0_00000; //CLAC
 ROM[3] = 38'b000000_0101_1000000000000000000_000_0_00000; //MVACMAR
 ROM[4] = 38'b000101_0000_0000000000000000000_010_0_00000; //LDAC1

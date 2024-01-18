@@ -100,7 +100,7 @@ always @(posedge clk) begin
 
                 RESET : C_bus <= 32'b0;
 
-                default : C_bus <= C_bus;
+                default : C_bus <= 32'b0;
             endcase
         end
    // end

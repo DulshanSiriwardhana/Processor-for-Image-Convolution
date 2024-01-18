@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 
 
-module ProgamCounter(
+module PCounter(
     input clk,
     input en,
     input w_en,
@@ -19,7 +19,7 @@ module ProgamCounter(
    
      initial
         begin
-            instruction_address=6'b0;   
+            instruction_address=6'b2;   
         end
    
     always @(posedge clk)

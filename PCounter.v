@@ -19,7 +19,7 @@ module PCounter(
    
      initial
         begin
-            instruction_address=6'b0;   
+            instruction_address=6'd0;   
         end
    
     always @(posedge clk)
