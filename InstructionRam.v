@@ -67,206 +67,207 @@ module Instruction_Ram(
     
     initial
     begin
-        inst_ram[0]     = {CLAC, 10'd0};
-        inst_ram[1]     = {MVACMAR, 10'd0};
-        inst_ram[2]     = {LDAC, 10'd0}; 
-        inst_ram[3]     = {MVACK0, 10'd0}; 
+	inst_ram[0]     = [FETCH, 10'd0]
+        inst_ram[1]     = {CLAC, 10'd0};
+        inst_ram[2]     = {MVACMAR, 10'd0};
+        inst_ram[3]     = {LDAC, 10'd0}; 
+        inst_ram[4]     = {MVACK0, 10'd0}; 
 
-        inst_ram[4]     = {CLAC, 10'd0}; 
-        inst_ram[5]     = {INAC, 10'd0};
-        inst_ram[6]     = {MVACI, 10'd0};
-        inst_ram[7]     = {MVACMAR, 10'd0};
-        inst_ram[8]     = {LDAC, 10'd0};
-        inst_ram[9]     = {MVACK1, 10'd0};
+        inst_ram[5]     = {CLAC, 10'd0}; 
+        inst_ram[6]     = {INAC, 10'd0};
+        inst_ram[7]     = {MVACI, 10'd0};
+        inst_ram[8]     = {MVACMAR, 10'd0};
+        inst_ram[9]     = {LDAC, 10'd0};
+        inst_ram[10]     = {MVACK1, 10'd0};
 
-        inst_ram[10]    = {MVIAC, 10'd0};
-        inst_ram[11]    = {INAC, 10'd0};
-        inst_ram[12]    = {MVACI, 10'd0};
-        inst_ram[13]    = {MVACMAR, 10'd0};
-        inst_ram[14]    = {LDAC, 10'd0};
-        inst_ram[15]    = {MVACK2, 10'd0};
+        inst_ram[11]    = {MVIAC, 10'd0};
+        inst_ram[12]    = {INAC, 10'd0};
+        inst_ram[13]    = {MVACI, 10'd0};
+        inst_ram[14]    = {MVACMAR, 10'd0};
+        inst_ram[15]    = {LDAC, 10'd0};
+        inst_ram[16]    = {MVACK2, 10'd0};
 
-        inst_ram[16]    = {MVIAC, 10'd0};
-        inst_ram[17]    = {INAC, 10'd0};
-        inst_ram[18]    = {MVACI, 10'd0};
-        inst_ram[19]    = {MVACMAR, 10'd0};
-        inst_ram[20]    = {LDAC, 10'd0};
-        inst_ram[21]    = {MVACK3, 10'd0};
+        inst_ram[17]    = {MVIAC, 10'd0};
+        inst_ram[18]    = {INAC, 10'd0};
+        inst_ram[19]    = {MVACI, 10'd0};
+        inst_ram[20]    = {MVACMAR, 10'd0};
+        inst_ram[21]    = {LDAC, 10'd0};
+        inst_ram[22]    = {MVACK3, 10'd0};
 
-        inst_ram[22]    = {MVIAC, 10'd0};
-        inst_ram[23]    = {INAC, 10'd0};
-        inst_ram[24]    = {MVACI, 10'd0};
-        inst_ram[25]    = {MVACMAR, 10'd0};
-        inst_ram[26]    = {LDAC, 10'd0};
-        inst_ram[27]    = {MVACK4, 10'd0};
+        inst_ram[23]    = {MVIAC, 10'd0};
+        inst_ram[24]    = {INAC, 10'd0};
+        inst_ram[25]    = {MVACI, 10'd0};
+        inst_ram[26]    = {MVACMAR, 10'd0};
+        inst_ram[27]    = {LDAC, 10'd0};
+        inst_ram[28]    = {MVACK4, 10'd0};
 
-        inst_ram[28]    = {MVIAC, 10'd0};
-        inst_ram[29]    = {INAC, 10'd0};
-        inst_ram[30]    = {MVACI,   10'd0};
-        inst_ram[31]    = {MVACMAR,   10'd0};
-        inst_ram[32]    = {LDAC,    10'd0};
-        inst_ram[33]    = {MVACK5,    10'd0};
+        inst_ram[29]    = {MVIAC, 10'd0};
+        inst_ram[30]    = {INAC, 10'd0};
+        inst_ram[31]    = {MVACI,   10'd0};
+        inst_ram[32]    = {MVACMAR,   10'd0};
+        inst_ram[33]    = {LDAC,    10'd0};
+        inst_ram[34]    = {MVACK5,    10'd0};
 
-        inst_ram[34]    = {MVIAC, 10'd0};
-        inst_ram[35]    = {INAC, 10'd0};
-        inst_ram[36]    = {MVACI, 10'd0};
-        inst_ram[37]    = {MVACMAR, 10'd0};
-        inst_ram[38]    = {LDAC, 10'd0};
-        inst_ram[39]    = {MVACK6, 10'd0};
-
-
-
-
-        inst_ram[40]    = {MVIAC, 10'd0};
-        inst_ram[41]    = {INAC, 10'd0};
-        inst_ram[42]    = {MVACI, 10'd0};
-        inst_ram[43]    = {MVACMAR, 10'd0};
-        inst_ram[44]    = {LDAC,  10'd0};
-        inst_ram[45]    = {MVACK7,  10'd0};
-
-       	inst_ram[46]    = {MVIAC, 10'd0};
-        inst_ram[47]    = {INAC, 10'd0};
-        inst_ram[48]    = {MVACI, 10'd0};
-        inst_ram[49]    = {MVACMAR, 10'd0};
-        inst_ram[50]    = {LDAC, 10'd0};
-        inst_ram[51]    = {MVACK8, 10'd0};
-
-        inst_ram[52]    = { MVIAC, 10'd0};
-        inst_ram[53]    = { INAC, 10'd0};
-        inst_ram[54]    = { MVACP1, 10'd0};
-        inst_ram[55]    = { LDII, 10'd30};	//Immediate data
-        inst_ram[56]    = { ADDI, 10'd0};                            
-        inst_ram[57]    = { MVACP2, 10'd0};
-        inst_ram[58]    = { ADDI, 10'd0};
-        inst_ram[59]    = { MVACP3, 10'd0};
-        inst_ram[60]    = { LDIDP, 10'd910};                    //Immediate data
-        inst_ram[61]    = { CLAC, 10'd0};
-        inst_ram[62]    = { MVACCV, 10'd0};
+        inst_ram[35]    = {MVIAC, 10'd0};
+        inst_ram[36]    = {INAC, 10'd0};
+        inst_ram[37]    = {MVACI, 10'd0};
+        inst_ram[38]    = {MVACMAR, 10'd0};
+        inst_ram[39]    = {LDAC, 10'd0};
+        inst_ram[40]    = {MVACK6, 10'd0};
 
 
-        inst_ram[63]    = { MVP1AC, 10'd0};                //L1
-        inst_ram[64]    = { MVACMAR, 10'd0};
-        inst_ram[65]    = { INAC, 10'd0};
-        inst_ram[66]    = { MVACP1, 10'd0};
-        inst_ram[67]    = { LDAC, 10'd0};
-        inst_ram[68]    = { MULK0, 10'd0};
-        inst_ram[69]    = { MVACCV, 10'd0};
 
 
-        inst_ram[70]    = { MVP2AC, 10'd0};
-        inst_ram[71]    = { MVACMAR, 10'd0};
-        inst_ram[72]    = { INAC, 10'd0};
-        inst_ram[73]    = { MVACP2, 10'd0};
-        inst_ram[74]    = { LDAC, 10'd0};
-        inst_ram[75]    = { MULK3, 10'd0}; 
-        inst_ram[76]    = { ADDCV, 10'd0};
-        inst_ram[77]    = { MVACCV, 10'd0};
+        inst_ram[41]    = {MVIAC, 10'd0};
+        inst_ram[42]    = {INAC, 10'd0};
+        inst_ram[43]    = {MVACI, 10'd0};
+        inst_ram[44]    = {MVACMAR, 10'd0};
+        inst_ram[45]    = {LDAC,  10'd0};
+        inst_ram[46]    = {MVACK7,  10'd0};
+
+       	inst_ram[47]    = {MVIAC, 10'd0};
+        inst_ram[48]    = {INAC, 10'd0};
+        inst_ram[49]    = {MVACI, 10'd0};
+        inst_ram[50]    = {MVACMAR, 10'd0};
+        inst_ram[51]    = {LDAC, 10'd0};
+        inst_ram[52]    = {MVACK8, 10'd0};
+
+        inst_ram[53]    = { MVIAC, 10'd0};
+        inst_ram[54]    = { INAC, 10'd0};
+        inst_ram[55]    = { MVACP1, 10'd0};
+        inst_ram[56]    = { LDII, 10'd30};	//Immediate data
+        inst_ram[57]    = { ADDI, 10'd0};                            
+        inst_ram[58]    = { MVACP2, 10'd0};
+        inst_ram[59]    = { ADDI, 10'd0};
+        inst_ram[60]    = { MVACP3, 10'd0};
+        inst_ram[61]    = { LDIDP, 10'd910};                    //Immediate data
+        inst_ram[62]    = { CLAC, 10'd0};
+        inst_ram[63]    = { MVACCV, 10'd0};
+
+
+        inst_ram[64]    = { MVP1AC, 10'd0};                //L1
+        inst_ram[65]    = { MVACMAR, 10'd0};
+        inst_ram[66]    = { INAC, 10'd0};
+        inst_ram[67]    = { MVACP1, 10'd0};
+        inst_ram[68]    = { LDAC, 10'd0};
+        inst_ram[69]    = { MULK0, 10'd0};
+        inst_ram[70]    = { MVACCV, 10'd0};
+
+
+        inst_ram[71]    = { MVP2AC, 10'd0};
+        inst_ram[72]    = { MVACMAR, 10'd0};
+        inst_ram[73]    = { INAC, 10'd0};
+        inst_ram[74]    = { MVACP2, 10'd0};
+        inst_ram[75]    = { LDAC, 10'd0};
+        inst_ram[76]    = { MULK3, 10'd0}; 
+        inst_ram[77]    = { ADDCV, 10'd0};
+        inst_ram[78]    = { MVACCV, 10'd0};
 
 
         
-        inst_ram[78]    = { MVP3AC, 10'd0};
-        inst_ram[79]    = { MVACMAR, 10'd0};
-        inst_ram[80]    = { INAC, 10'd0};
-        inst_ram[81]    = { MVACP3, 10'd0};
-        inst_ram[82]    = { LDAC, 10'd0};
-        inst_ram[83]    = { MULK6, 10'd0}; 
-        inst_ram[84]    = { ADDCV, 10'd0};
-        inst_ram[85]    = { MVACCV, 10'd0};
+        inst_ram[79]    = { MVP3AC, 10'd0};
+        inst_ram[80]    = { MVACMAR, 10'd0};
+        inst_ram[81]    = { INAC, 10'd0};
+        inst_ram[82]    = { MVACP3, 10'd0};
+        inst_ram[83]    = { LDAC, 10'd0};
+        inst_ram[84]    = { MULK6, 10'd0}; 
+        inst_ram[85]    = { ADDCV, 10'd0};
+        inst_ram[86]    = { MVACCV, 10'd0};
 
-        inst_ram[86]    = { MVP1AC, 10'd0};
-        inst_ram[87]    = { MVACMAR, 10'd0};
-        inst_ram[88]    = { INAC, 10'd0};
-        inst_ram[89]    = { MVACP1, 10'd0};
-        inst_ram[90]    = { LDAC, 10'd0};
-        inst_ram[91]    = { MULK1, 10'd0}; 
-        inst_ram[92]    = { ADDCV, 10'd0};
-        inst_ram[93]    = { MVACCV, 10'd0};
+        inst_ram[87]    = { MVP1AC, 10'd0};
+        inst_ram[88]    = { MVACMAR, 10'd0};
+        inst_ram[89]    = { INAC, 10'd0};
+        inst_ram[90]    = { MVACP1, 10'd0};
+        inst_ram[91]    = { LDAC, 10'd0};
+        inst_ram[92]    = { MULK1, 10'd0}; 
+        inst_ram[93]    = { ADDCV, 10'd0};
+        inst_ram[94]    = { MVACCV, 10'd0};
 
-        inst_ram[94]    = { MVP2AC, 10'd0};
-        inst_ram[95]    = { MVACMAR, 10'd0};
-        inst_ram[96]    = { INAC, 10'd0};
-        inst_ram[97]    = { MVACP2, 10'd0};
-        inst_ram[98]    = { LDAC, 10'd0};
-        inst_ram[99]    = { MULK4, 10'd0}; 
-        inst_ram[100]    = { ADDCV, 10'd0};
-        inst_ram[101]    = { MVACCV, 10'd0};
+        inst_ram[95]    = { MVP2AC, 10'd0};
+        inst_ram[96]    = { MVACMAR, 10'd0};
+        inst_ram[97]    = { INAC, 10'd0};
+        inst_ram[98]    = { MVACP2, 10'd0};
+        inst_ram[99]    = { LDAC, 10'd0};
+        inst_ram[100]    = { MULK4, 10'd0}; 
+        inst_ram[101]    = { ADDCV, 10'd0};
+        inst_ram[102]    = { MVACCV, 10'd0};
 
-        inst_ram[102]    = { MVP3AC, 10'd0};
-        inst_ram[103]    = { MVACMAR, 10'd0};
-        inst_ram[104]    = { INAC, 10'd0};
-        inst_ram[105]    = { MVACP3, 10'd0};
-        inst_ram[106]    = { LDAC, 10'd0};
-        inst_ram[107]    = { MULK7, 10'd0};
-        inst_ram[108]    = { ADDCV, 10'd0};
-        inst_ram[109]    = { MVACCV, 10'd0};
-
-
+        inst_ram[103]    = { MVP3AC, 10'd0};
+        inst_ram[104]    = { MVACMAR, 10'd0};
+        inst_ram[105]    = { INAC, 10'd0};
+        inst_ram[106]    = { MVACP3, 10'd0};
+        inst_ram[107]    = { LDAC, 10'd0};
+        inst_ram[108]    = { MULK7, 10'd0};
+        inst_ram[109]    = { ADDCV, 10'd0};
+        inst_ram[110]    = { MVACCV, 10'd0};
 
 
 
 
-        inst_ram[110]    = { MVP1AC, 10'd0};
-        inst_ram[111]    = { MVACMAR, 10'd0};
-        inst_ram[112]    = { INAC, 10'd0};
-        inst_ram[113]    = { MVACP1, 10'd0};
-        inst_ram[114]    = { LDAC, 10'd0};
-        inst_ram[115]    = { MULK2, 10'd0}; 
-        inst_ram[116]    = { ADDCV, 10'd0};
-        inst_ram[117]    = { MVACCV, 10'd0};
-
-        inst_ram[118]    = { MVP2AC, 10'd0};
-        inst_ram[119]    = { MVACMAR, 10'd0};
-        inst_ram[120]    = { INAC, 10'd0};
-        inst_ram[121]    = { MVACP2, 10'd0};
-        inst_ram[122]    = { LDAC, 10'd0};
-        inst_ram[123]    = { MULK5, 10'd0};
-        inst_ram[124]    = { ADDCV, 10'd0};
-        inst_ram[125]    = { MVACCV, 10'd0};
-
-        inst_ram[126]    = { MVP3AC, 10'd0};
-        inst_ram[127]    = { MVACMAR, 10'd0};
-        inst_ram[128]    = { INAC, 10'd0};
-        inst_ram[129]    = { MVACP3, 10'd0};
-        inst_ram[130]    = { LDAC, 10'd0};
-        inst_ram[131]    = { MULK8, 10'd0}; 
-        inst_ram[132]    = { ADDCV, 10'd0};
-        inst_ram[133]    = { MVACCV, 10'd0};
 
 
+        inst_ram[111]    = { MVP1AC, 10'd0};
+        inst_ram[112]    = { MVACMAR, 10'd0};
+        inst_ram[113]    = { INAC, 10'd0};
+        inst_ram[114]    = { MVACP1, 10'd0};
+        inst_ram[115]    = { LDAC, 10'd0};
+        inst_ram[116]    = { MULK2, 10'd0}; 
+        inst_ram[117]    = { ADDCV, 10'd0};
+        inst_ram[118]    = { MVACCV, 10'd0};
 
-        inst_ram[134]    = { MVDPAC, 10'd0};
-        inst_ram[135]    = { MVACMAR, 10'd0};
-        inst_ram[136]    = { MVCVAC, 10'd0};
-        inst_ram[137]    = { STAC, 10'd0};
+        inst_ram[119]    = { MVP2AC, 10'd0};
+        inst_ram[120]    = { MVACMAR, 10'd0};
+        inst_ram[121]    = { INAC, 10'd0};
+        inst_ram[122]    = { MVACP2, 10'd0};
+        inst_ram[123]    = { LDAC, 10'd0};
+        inst_ram[124]    = { MULK5, 10'd0};
+        inst_ram[125]    = { ADDCV, 10'd0};
+        inst_ram[126]    = { MVACCV, 10'd0};
+
+        inst_ram[127]    = { MVP3AC, 10'd0};
+        inst_ram[128]    = { MVACMAR, 10'd0};
+        inst_ram[129]    = { INAC, 10'd0};
+        inst_ram[130]    = { MVACP3, 10'd0};
+        inst_ram[131]    = { LDAC, 10'd0};
+        inst_ram[132]    = { MULK8, 10'd0}; 
+        inst_ram[133]    = { ADDCV, 10'd0};
+        inst_ram[134]    = { MVACCV, 10'd0};
 
 
-        inst_ram[138]    = { LDII, 10'd29};                       //Immediate data
-        inst_ram[139]    = { MVP1AC, 10'd0};
-        inst_ram[140]    = { MOD30, 10'd0};
-        inst_ram[141]    = { SUBI, 10'd0};
-        inst_ram[142]    = { JUMPZ, 10'd159};            //Jump address
-        inst_ram[143]    = { MVP1AC, 10'd0}; 
-        inst_ram[144]    = { INAC, 10'd0};
+
+        inst_ram[135]    = { MVDPAC, 10'd0};
+        inst_ram[136]    = { MVACMAR, 10'd0};
+        inst_ram[137]    = { MVCVAC, 10'd0};
+        inst_ram[138]    = { STAC, 10'd0};
+
+
+        inst_ram[139]    = { LDII, 10'd29};                       //Immediate data
+        inst_ram[140]    = { MVP1AC, 10'd0};
+        inst_ram[141]    = { MOD30, 10'd0};
+        inst_ram[142]    = { SUBI, 10'd0};
+        inst_ram[143]    = { JUMPZ, 10'd159};            //Jump address
+        inst_ram[144]    = { MVP1AC, 10'd0}; 
         inst_ram[145]    = { INAC, 10'd0};
-        inst_ram[146]    = { MVACP1, 10'd0};
-        inst_ram[147]    = { MVP2AC, 10'd0}; 
-        inst_ram[148]    = { INAC, 10'd0};
+        inst_ram[146]    = { INAC, 10'd0};
+        inst_ram[147]    = { MVACP1, 10'd0};
+        inst_ram[148]    = { MVP2AC, 10'd0}; 
         inst_ram[149]    = { INAC, 10'd0};
-        inst_ram[150]    = { MVACP2, 10'd0};
-        inst_ram[151]    = { MVP3AC, 10'd0};
-        inst_ram[152]    = { INAC, 10'd0};
+        inst_ram[150]    = { INAC, 10'd0};
+        inst_ram[151]    = { MVACP2, 10'd0};
+        inst_ram[152]    = { MVP3AC, 10'd0};
         inst_ram[153]    = { INAC, 10'd0};
-        inst_ram[154]    = { MVACP3, 10'd0}; 
-        inst_ram[155]    = { MVDPAC, 10'd0};
-        inst_ram[156]    = { INAC, 10'd0};
-        inst_ram[157]    = { INAC, 10'd0}; 
-        inst_ram[158]    = { MVACDP, 10'd0};
+        inst_ram[154]    = { INAC, 10'd0};
+        inst_ram[155]    = { MVACP3, 10'd0}; 
+        inst_ram[156]    = { MVDPAC, 10'd0};
+        inst_ram[157]    = { INAC, 10'd0};
+        inst_ram[158]    = { INAC, 10'd0}; 
+        inst_ram[159]    = { MVACDP, 10'd0};
 
-        inst_ram[159]    = { LDII, 10'd869};          //L3      //Immediate data
-        inst_ram[160]    = { MVDPAC, 10'd0};
-        inst_ram[161]    = { SUBI, 10'd0};
-        inst_ram[162]    = { JUMPNZ, 10'd63};     //Jump address
-        inst_ram[163]    = { NOP, 10'd0};              //L2
+        inst_ram[160]    = { LDII, 10'd869};          //L3      //Immediate data
+        inst_ram[161]    = { MVDPAC, 10'd0};
+        inst_ram[162]    = { SUBI, 10'd0};
+        inst_ram[163]    = { JUMPNZ, 10'd63};     //Jump address
+        inst_ram[164]    = { NOP, 10'd0};              //L2
 
 
 
