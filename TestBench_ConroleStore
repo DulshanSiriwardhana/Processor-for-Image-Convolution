@@ -1,0 +1,74 @@
+`timescale 1ns / 1ps
+
+module control_unit_tb;
+
+  // Define signals for the test bench
+  reg clk;
+  reg enable;
+  reg Z_flag;
+  reg [5:0] addr;
+  reg [5:0] MBRU;
+  wire [37:0] control_signal;
+  wire finish;
+
+  // Instantiate the control_unit module
+  control_unit uut (
+    .clk(clk),
+    .enable(enable),
+    .Z_flag(Z_flag),
+    .addr(addr),
+    .MBRU(MBRU),
+    .control_signal(control_signal),
+    .finish(finish)
+  );
+
+  // Clock generation
+  always
+    begin
+      #5 clk = ~clk;
+    end
+
+  // Testbench stimulus
+  initial
+    begin
+      // Initialize signals
+      clk = 0;
+      enable = 0;
+      Z_flag = 0;
+      addr = 0;
+      MBRU = 0;
+
+      // Apply stimulus
+      // Enable the control_unit module
+      enable = 1;
+
+      // Wait for a few clock cycles
+      #1;
+
+      // Test different cases by changing addr and MBRU values
+      addr = 6'd0; // FETCH1
+      MBRU = 6'd0; // Initial value
+
+      // Wait for a few clock cycles
+      #1;
+
+      addr = 6'd47; // JUMPNZ
+      Z_flag = 1'b0;
+
+      // Wait for a few clock cycles
+      #1;
+
+      addr = 6'd52; // JUMPZ
+      Z_flag = 1'b1;
+
+      // Wait for a few clock cycles
+      #1;
+
+      // Monitor the outputs
+      $display("Control Signal = %h, Finish = %b", control_signal, finish);
+      
+      // Finish simulation
+      $finish;
+    end
+
+endmodule
