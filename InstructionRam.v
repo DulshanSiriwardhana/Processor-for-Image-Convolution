@@ -67,7 +67,7 @@ module Instruction_Ram(
     
     initial
     begin
-        inst_ram[0]     = {CLAC, 10' d0};
+        inst_ram[0]     = {CLAC, 10'd0};
         inst_ram[1]     = {MVACMAR, 10'd0};
         inst_ram[2]     = {LDAC, 10'd0}; 
         inst_ram[3]     = {MVACK0, 10'd0}; 

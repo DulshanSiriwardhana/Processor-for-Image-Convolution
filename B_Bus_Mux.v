@@ -17,6 +17,7 @@ module B_Bus_Mux(
     input [31:0] K5,
     input [31:0] K6,
     input [31:0] K7,
+    input [31:0] K8,
     input [31:0] P1,
     input [31:0] P2,
     input [31:0] P3,

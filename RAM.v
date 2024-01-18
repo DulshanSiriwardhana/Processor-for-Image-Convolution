@@ -1,25 +1,25 @@
 `timescale 1ns / 1ps
 
-module Ram (
-  
-
+module Ram #(
+  parameter DATA_WIDTH = 8, 
+  parameter ADDR_WIDTH = 12
+)(
   input clk,
   input w_en,
   input r_en,
   input done,
-  input [11:0] address,
-  input [7:0] data_in,
-  output reg [7:0] data_out
+  input [(ADDR_WIDTH-1):0] address,
+  input [(DATA_WIDTH-1):0] data_in,
+  output reg [(DATA_WIDTH-1):0] data_out
 );
 
-  reg [7:0] ram [2**12 - 1:0];
-  reg [7:0] read_data;
+  reg [(DATA_WIDTH-1):0] ram [2**ADDR_WIDTH - 1:0];
+  reg [(DATA_WIDTH-1):0] read_data;
   reg [17:0] index;
+  reg file_end;
 
   integer f; // Declare file variable
   integer file;
-  integer i;
-  integer data;
 
   always @(posedge clk)
     if (w_en == 1)
@@ -33,38 +33,29 @@ module Ram (
 
   always @(posedge clk)
     if (done == 1) begin
-      index <= index + 1;
-      $fwrite(f, "%b\n", ram[index]);
-      if (index == 86383) begin
-        $fclose(f);
-        $finish;
+      if (!file_end) begin
+        index <= index + 1;
+        if (index < 2**ADDR_WIDTH) begin
+          $fwrite(f, "%b\n", ram[index]);
+        end else begin
+          file_end <= 1;
+          $fclose(f);
+          $finish;
+        end
       end
     end
 
-  initial begin
-   // f = $fopen("E:\\Work\\ENTC\\5 CSD\\DownSampleMe-main_3\\Images\\clock_tower256-processor_output.txt", "w");
-    
-    file = $fopen("Image.txt", "r");
+initial begin
+  f = $fopen("C:\\Users\\User\\OneDrive\\Desktop\\5th Sem\\HDL\\Project\\Processor-for-Image-Convolution\\Con_Output.txt", "w");
 
-    if (file == 0) begin
-      $display("Error opening the file");
-      $stop;
-    end
+  // Open the data file for reading
+  file = $fopen("C:\\Users\\User\\OneDrive\\Desktop\\5th Sem\\HDL\\Project\\Processor-for-Image-Convolution\\Image.txt", "r");
 
-    // Read data from the file line by line and store in the ram array
-    
-    for (i = 0; i < 2**12; i = i + 1) begin
-       data=0;
-      if ($feof(file) == 0) begin
-        $fscanf(file, "%b\n", data);
-        ram[i] = data;
-      end else begin
-        $display("End of file reached");
-        $fclose(file);
-       	
-      end
-    end
+  if (file == 0) begin
+    $display("Error opening the file");
+    $stop;
   end
+end
 
 endmodule
 

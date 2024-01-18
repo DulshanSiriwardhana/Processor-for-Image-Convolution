@@ -51,8 +51,7 @@ module Processor(
     wire [31:0] A_bus;
 
 
-    // used in mdr
-    wire [31:0] mdr_out;        
+           
 
 
     // clock divider
@@ -109,148 +108,147 @@ control_unit CU (
     );
 
 
-    Accumulator ACC(
-        .clk(clk_div), //added clk divider otherwise 4 operations in 1 clock cycle
+     Register AC(
+        .clk(clk_div),
+        .w_en(control_signals[9]),
         .data_in(C_bus),
-        .data_out(A_bus),
-        .inc(control_signals[4]),
-        .w_en(control_signals[9])
+        .data_out(A_bus)
     );
 
 
     ALU_32bit ALU(
         .enable(en),
-        .clk(clk),   //added clk divider otherwise 4 operations in 1 clock cycle
-        .A(A_bus),
-        .B(B_bus),
+        .clk(clk_div),   //added clk divider otherwise 4 operations in 1 clock cycle
+        .A_Bus(A_bus),
+        .B_Bus(B_bus),
         .out(C_bus),
-        .z_flag(z_flag),
-        .sel(control_signals[26:23])
+        .Z_flag(z_flag),
+        .Control(control_signals[31:28])
     );
 
 
    Register K0(
         .clk(clk),
-        .w_en(control_signals[18]),
+        .w_en(control_signals[24]),
         .data_in(C_bus),
-        .data_out(R1_bus)
+        .data_out(K0_bus)
     );
 
 
     Register K1(
         .clk(clk),
-        .w_en(control_signals[18]),
+        .w_en(control_signals[23]),
         .data_in(C_bus),
-        .data_out(R1_bus)
+        .data_out(K1_bus)
     );
 
 
     Register K2(
         .clk(clk),
-        .w_en(control_signals[17]),
+        .w_en(control_signals[22]),
         .data_in(C_bus),
-        .data_out(R2_bus)
+        .data_out(K2_bus)
     );
 
 
     Register K3(
         .clk(clk),
-        .w_en(control_signals[16]),
+        .w_en(control_signals[21]),
         .data_in(C_bus),
-        .data_out(R3_bus)
+        .data_out(K3_bus)
     );
 
 
     Register K4(
         .clk(clk),
-        .w_en(control_signals[15]),
+        .w_en(control_signals[20]),
         .data_in(C_bus),
-        .data_out(R4_bus)
+        .data_out(K4_bus)
     );
 
 
     Register K5(
         .clk(clk),
-        .w_en(control_signals[14]),
+        .w_en(control_signals[19]),
         .data_in(C_bus),
-        .data_out(R5_bus)
+        .data_out(K5_bus)
     );
 
 
     Register K6(
         .clk(clk),
-        .w_en(control_signals[13]),
+        .w_en(control_signals[18]),
         .data_in(C_bus),
-        .data_out(R6_bus)
+        .data_out(K6_bus)
     );
 
 
     Register K7(
         .clk(clk),
-        .w_en(control_signals[12]),
+        .w_en(control_signals[17]),
         .data_in(C_bus),
-        .data_out(R7_bus)
+        .data_out(K7_bus)
     );
 
 
     Register K8(
         .clk(clk),
-        .w_en(control_signals[11]),
+        .w_en(control_signals[16]),
         .data_in(C_bus),
-        .data_out(R8_bus)
+        .data_out(K8_bus)
     );
 
 
     Register P1(
         .clk(clk),
-        .w_en(control_signals[10]),
+        .w_en(control_signals[15]),
         .data_in(C_bus),
-        .data_out(R9_bus)
+        .data_out(P1_bus)
     );
 
      Register P2(
         .clk(clk),
-        .w_en(control_signals[10]),
+        .w_en(control_signals[14]),
         .data_in(C_bus),
-        .data_out(R9_bus)
+        .data_out(P2_bus)
     );
 
     Register P3(
         .clk(clk),
-        .w_en(control_signals[10]),
+        .w_en(control_signals[13]),
         .data_in(C_bus),
-        .data_out(R9_bus)
+        .data_out(P3_bus)
     );
 
 
     Register CV(
         .clk(clk),
-        .w_en(control_signals[10]),
+        .w_en(control_signals[11]),
         .data_in(C_bus),
-        .data_out(R9_bus)
+        .data_out(CV_bus)
     );
 
    
 
      Register DP(
         .clk(clk),
-        .w_en(control_signals[10]),
+        .w_en(control_signals[12]),
         .data_in(C_bus),
-        .data_out(R9_bus)
+        .data_out(DP_bus)
     );
 
      Register I(
         .clk(clk),
         .w_en(control_signals[10]),
         .data_in(C_bus),
-        .data_out(R9_bus)
+        .data_out(I_bus)
     );
 
 
-    PC PC(
+    ProgramCounter PC(
         .clk(clk_div),
         .en(en),
-        .w_en(control_signals[20]),
+        .w_en(control_signals[25]),
         .complete(complete),
         .inc(control_signals[5]),
         .data_in(C_bus),
@@ -260,24 +258,35 @@ control_unit CU (
 
     B_Bus_Mux MUX(
         .clk(clk),
-        .sel(control_signals[3:0]),
+        .sel(control_signals[4:0]),
         .AC(A_bus),
         .MAR(mar_out),
         .MDR(mdr_out),
         .PC(instruction_address),
         .MBRU(mbru_out),
-        .R1(R1_bus),
-        .R2(R2_bus),
-        .R3(R3_bus),
-        .R4(R4_bus),
-        .R5(R5_bus),
-        .R6(R6_bus),
-        .R7(R7_bus),
-        .R8(R8_bus),
-        .R9(R9_bus),
-        .Bus_Out(B_bus)
-    );
+	.K0(K0_bus),
+        .K1(K1_bus),
+        .K2(K2_bus),
+        .K3(K3_bus),
+        .K4(K4_bus),
+        .K5(K5_bus),
+        .K6(K6_bus),
+        .K7(K7_bus),
+        .K8(K8_bus),
+        .P1(P1_bus),
+ 	.P2(P2_bus),
+ 	.P3(P3_bus),
+ 	.CV(CV_bus),
+ 	.DP(DP_bus),
+ 	.I(I_bus),
+	.Bus_Out(B_bus)
+);
 
+
+
+
+
+  
 
     Ram RAM(
         .clk(clk),
