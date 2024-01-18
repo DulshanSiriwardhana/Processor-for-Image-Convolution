@@ -3,8 +3,8 @@ module control_unit(
 	input clk,
 	input enable,
 	input Z_flag,
-	input [6:0] addr,
-	input [6:0] MBRU,
+	input [5:0] addr,
+	input [5:0] MBRU,
 	output reg [37:0] control_signal,
 	output finish
 );

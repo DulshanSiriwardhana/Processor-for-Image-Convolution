@@ -20,7 +20,7 @@ module Processor(
     wire [7:0] DRam_in;
     wire [31:0] mdr_out;
     wire [7:0]  DRam_out;
-
+	
    //////////// // used in MBRU
     wire [31:0] mbru_out;
 
@@ -29,7 +29,7 @@ module Processor(
     wire [31:0] mar_out;
     wire [31:0] B_bus;
     wire [31:0] C_bus;
-
+    wire [11:0] data_addr;
    
     wire [31:0] K0_bus;
     wire [31:0] K1_bus;
@@ -103,8 +103,8 @@ control_unit CU (
         .read_en(control_signals[7]),
         .data_out(mdr_out),
         .data_in(C_bus),
-        .DRam_in(DRam_in),
-        .DRam_out(DRam_out)
+        .DRAM_in(DRam_in),
+        .DRAM_out(DRam_out)
     );
 
 
@@ -119,9 +119,9 @@ control_unit CU (
     ALU_32bit ALU(
         .enable(en),
         .clk(clk_div),   //added clk divider otherwise 4 operations in 1 clock cycle
-        .A_Bus(A_bus),
-        .B_Bus(B_bus),
-        .out(C_bus),
+        .A_bus(A_bus),
+        .B_bus(B_bus),
+        .C_bus(C_bus),
         .Z_flag(z_flag),
         .Control(control_signals[31:28])
     );
@@ -245,7 +245,7 @@ control_unit CU (
     );
 
 
-    ProgramCounter PC(
+    PCounter PC(
         .clk(clk_div),
         .en(en),
         .w_en(control_signals[25]),
@@ -254,6 +254,8 @@ control_unit CU (
         .data_in(C_bus),
         .instruction_address(instruction_address)  
     );
+
+
 
 
     B_Bus_Mux MUX(

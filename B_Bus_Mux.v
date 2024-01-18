@@ -3,7 +3,7 @@
 
 module B_Bus_Mux(
     input clk,
-    input [3:0] sel,
+    input [4:0] sel,
     input [31:0] AC,
     input [31:0] MAR,
     input [31:0] MDR,
