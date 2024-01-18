@@ -67,7 +67,7 @@ module Instruction_Ram(
     
     initial
     begin
-	inst_ram[0]     = [FETCH, 10'd0]
+	inst_ram[0]     = {FETCH, 10'd0};
         inst_ram[1]     = {CLAC, 10'd0};
         inst_ram[2]     = {MVACMAR, 10'd0};
         inst_ram[3]     = {LDAC, 10'd0}; 
