@@ -101,7 +101,6 @@ r1
 !s107 C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/Program_Counter.v|
 !s90 -reportprogress|300|-work|work|C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/Program_Counter.v|
 !i113 1
-R4
 R5
 n@progam@counter
 vProgamCounter_tb
@@ -125,6 +124,5 @@ r1
 !s107 C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/TestBench_Program_Counter.v|
 !s90 -reportprogress|300|-work|work|C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/TestBench_Program_Counter.v|
 !i113 1
-R4
 R5
 n@progam@counter_tb
