@@ -1,78 +1,70 @@
 `timescale 1ns / 1ps
 
+module Ram (
+  
 
-module Ram#(
-  parameter DATA_WIDTH = 8, // maximum 255
-  parameter ADDR_WITDH = 10
-)(                
-    input clk,
-    input w_en,
-    input r_en,
-    input done,
-    input  [(ADDR_WITDH-1):0] address,
-    input  [(DATA_WIDTH-1):0] data_in,//maximum value is 256 (8 bits)
-    output [(DATA_WIDTH-1):0] data_out
+  input clk,
+  input w_en,
+  input r_en,
+  input done,
+  input [11:0] address,
+  input [7:0] data_in,
+  output reg [7:0] data_out
 );
-   
-    // localparam ram_size=131072; //17 bits
-    reg [(DATA_WIDTH-1):0] ram [2**ADDR_WITDH -1: 0];
-    reg [(DATA_WIDTH-1):0] read_data;
-    reg [17:0] index;
-    reg [17:0] index_conv;
-    integer f;
-    integer g;
-       
-    always @(posedge clk)
-        begin
-            if (w_en==1)
-                ram[address]<=data_in;                  
-    end
-       
-    always @ (posedge clk)
-        begin
-            if(r_en == 1)
-                read_data<= ram[address];  
-    end
-       
-    assign data_out = read_data;
-   
 
+  reg [7:0] ram [2**12 - 1:0];
+  reg [7:0] read_data;
+  reg [17:0] index;
 
-    always@(posedge clk)
-        begin
-          if ( done  == 1 )
-          begin
-              index <= index+1;
-              $fwrite(f,"%b\n",ram[index] ); //NOT DRAM < DMEM           
-          end
-          if(index == 86383)
-              begin
-                $fclose(f);
-                $finish;
-              end
-        end
-    initial
-    begin
-        
-        f = $fopen("E:\\Work\\ENTC\\5 CSD\\DownSampleMe-main_3\\Images\\clock_tower256-processor_output.txt","w");
-        index = 70000;              //start index
-        ram[3]  = 8'bx; // height_count
-        ram[4]  = 8'bx; // a: a local variable
-        ram[5]  = 8'bx; // b: a local variable
-        ram[6]  = 8'bx; // c: a local variable
-        ram[7]  = 8'bx; // width_count
-       
-        // image data: 8 bit single channel image
-        ram[20] = 8'b11010000;
-        ram[21] = 8'b11010000;
-        ram[22] = 8'b11010001;
-        ram[23] = 8'b11010001;
-        ram[24] = 8'b11010001;
-	  ??????
-	  ??????
-	  ??????
-        ram[65555] = 8'b01100101;
+  integer f; // Declare file variable
+  integer file;
+  integer i;
+  integer data;
+
+  always @(posedge clk)
+    if (w_en == 1)
+      ram[address] <= data_in;
+
+  always @(posedge clk)
+    if (r_en == 1)
+      read_data <= ram[address];
+
+  assign data_out = read_data;
+
+  always @(posedge clk)
+    if (done == 1) begin
+      index <= index + 1;
+      $fwrite(f, "%b\n", ram[index]);
+      if (index == 86383) begin
+        $fclose(f);
+        $finish;
+      end
+    end
+
+  initial begin
+   // f = $fopen("E:\\Work\\ENTC\\5 CSD\\DownSampleMe-main_3\\Images\\clock_tower256-processor_output.txt", "w");
     
-    end    
-   
+    file = $fopen("Image.txt", "r");
+
+    if (file == 0) begin
+      $display("Error opening the file");
+      $stop;
+    end
+
+    // Read data from the file line by line and store in the ram array
+    
+    for (i = 0; i < 2**12; i = i + 1) begin
+       data=0;
+      if ($feof(file) == 0) begin
+        $fscanf(file, "%b\n", data);
+        ram[i] = data;
+      end else begin
+        $display("End of file reached");
+        $fclose(file);
+       	
+      end
+    end
+  end
+
 endmodule
+

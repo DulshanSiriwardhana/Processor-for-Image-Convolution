@@ -9,74 +9,122 @@ z2
 !i10f 100
 cModel Technology
 Z0 dC:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution
-vInstruction_Ram
-!s110 1705413606
+vAccumilator
+!s110 1705556996
 !i10b 1
-!s100 V9>Keml2G4NmWICR@26dG3
+!s100 V?@K4VgNTdJ7mVQl8jFOW2
 Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
-Iecc=l2QFJdDUN>nc^S<Dh0
+IFJ8n`LkC88Kn]:hm;zkR02
 Z2 VDg1SIo80bB@j0V0VzS_@n1
 R0
-w1705412909
-8C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/InstructionRam.v
-FC:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/InstructionRam.v
-!i122 2
-L0 2 285
+w1705556402
+8C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/Accumilator.v
+FC:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/Accumilator.v
+!i122 8
+L0 4 19
 Z3 OV;L;2020.1;71
 r1
 !s85 0
 31
-!s108 1705413606.000000
-!s107 C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/InstructionRam.v|
-!s90 -reportprogress|300|-work|work|C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/InstructionRam.v|
+!s108 1705556996.000000
+!s107 C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/Accumilator.v|
+!s90 -reportprogress|300|-work|work|C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/Accumilator.v|
 !i113 1
 Z4 o-work work
 Z5 tCvgOpt 0
-n@instruction_@ram
-vtb_Instruction_Ram
-!s110 1705413105
+n@accumilator
+vAccumulator_tb
+!s110 1705557162
 !i10b 1
-!s100 ^_1>56TLoNlKi4IAIkj700
+!s100 Q=KA`h:G69RJizKjabcKU1
 R1
-IJ7HQIDT:OH1X_ijzF1HTD3
+IeLDnFJEkC[`d0]39;MNZL2
 R2
 R0
-w1705413094
-8C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/TestBench_InstructionRam.v
-FC:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/TestBench_InstructionRam.v
-!i122 1
-L0 3 39
+w1705557150
+8C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/TestBench_Accumilator.v
+FC:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/TestBench_Accumilator.v
+!i122 9
+L0 3 48
 R3
 r1
 !s85 0
 31
-!s108 1705413104.000000
-!s107 C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/TestBench_InstructionRam.v|
-!s90 -reportprogress|300|-work|work|C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/TestBench_InstructionRam.v|
+!s108 1705557162.000000
+!s107 C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/TestBench_Accumilator.v|
+!s90 -reportprogress|300|-work|work|C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/TestBench_Accumilator.v|
 !i113 1
 R4
 R5
-ntb_@instruction_@ram
-vtb_ram_image
-!s110 1705416257
+n@accumulator_tb
+vclock_gen
+!s110 1705560767
 !i10b 1
-!s100 kAI6L6=`SkL7blFbl_gge0
+!s100 lFONTmR=JXkA0T66iL8h30
 R1
-IcoczR6DkOa[jLc<Y3E94^2
+IF?i=iS6RaA7?6AXz9A2a<1
 R2
 R0
-w1705416249
-8C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/TestBench Ram.v
-FC:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/TestBench Ram.v
+w1705560745
+8C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/clock_generator.v
+FC:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/clock_generator.v
+!i122 10
+L0 1 27
+R3
+r1
+!s85 0
+31
+!s108 1705560766.000000
+!s107 C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/clock_generator.v|
+!s90 -reportprogress|300|-work|work|C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/clock_generator.v|
+!i113 1
+R4
+R5
+vProgamCounter
+Z6 !s110 1705555332
+!i10b 1
+!s100 4fbLfN0H6?ndVcUT[>M;[2
+R1
+IJdhKFD_e5?HfEgkz9VZ^[1
+R2
+R0
+w1705554861
+8C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/Program_Counter.v
+FC:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/Program_Counter.v
+!i122 2
+L0 4 45
+R3
+r1
+!s85 0
+31
+!s108 1705555319.000000
+!s107 C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/Program_Counter.v|
+!s90 -reportprogress|300|-work|work|C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/Program_Counter.v|
+!i113 1
+R4
+R5
+n@progam@counter
+vProgamCounter_tb
+R6
+!i10b 1
+!s100 >bK`@7>>dkAjebPHn9CT]1
+R1
+IS=d4Yj1O@YU>FebiLSB>72
+R2
+R0
+w1705555311
+8C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/TestBench_Program_Counter.v
+FC:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/TestBench_Program_Counter.v
 !i122 3
-L0 1 63
+L0 3 55
 R3
 r1
 !s85 0
 31
-!s108 1705416257.000000
-!s107 C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/TestBench Ram.v|
-!s90 -reportprogress|300|-work|work|C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/TestBench Ram.v|
+!s108 1705555326.000000
+!s107 C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/TestBench_Program_Counter.v|
+!s90 -reportprogress|300|-work|work|C:/Users/User/OneDrive/Desktop/5th Sem/HDL/Project/Processor-for-Image-Convolution/TestBench_Program_Counter.v|
 !i113 1
 R4
 R5
+n@progam@counter_tb
