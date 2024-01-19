@@ -12,9 +12,9 @@ module Accumilator(
     //events done at pose edge
     always @(posedge clk)
     begin
-        if (inc==1)
-            data_out<= data_out+1;
-        else if (w_en==1)
+      //  if (inc==1)
+          //  data_out<= data_out+1;
+         if (w_en==1)
             data_out<= data_in;
 
 

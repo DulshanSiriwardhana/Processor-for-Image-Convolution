@@ -27,14 +27,17 @@ module Ram (
     file = $fopen("C:\\Users\\User\\OneDrive\\Desktop\\5th Sem\\HDL\\Project\\Processor-for-Image-Convolution\\Image.txt", "r");
  	
        
+ for (i = 0; i < 2**12; i = i + 1) begin
+       data=0;
+      if ($feof(file) == 0) begin
+        $fscanf(file, "%b\n", data);
+        ram[i] = data;
+      end else begin
+        $display("End of file reached");
+        $fclose(file);
 
-        // image data: 8 bit single channel image
-        ram[0] = 8'b11010000;
-        ram[1] = 8'b11010000;
-        ram[2] = 8'b11010001;
-        ram[3] = 8'b11010001;
-        ram[4] = 8'b11010001;
-    
+      end
+    end
 
    @(posedge clk) begin
     if (w_en) begin

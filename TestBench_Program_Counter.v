@@ -11,7 +11,7 @@ module ProgamCounter_tb;
     wire [5:0] instruction_address;
 
     
-    ProgamCounter uut (
+    PCounter uut (
         .clk(clk),
         .en(en),
         .w_en(w_en),
@@ -48,7 +48,7 @@ module ProgamCounter_tb;
         #10;
         $display("Test Case 2: instruction_address = %b", instruction_address);
 
-        // Add more test cases as needed
+       
 
         // End simulation
         $stop;

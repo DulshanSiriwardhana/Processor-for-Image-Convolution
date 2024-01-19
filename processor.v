@@ -290,7 +290,7 @@ control_unit CU (
 
   
 
-    Ram RAM(
+    Ram2 RAM(
         .clk(clk),
         .w_en(control_signals[6]),
         .r_en(control_signals[7]),

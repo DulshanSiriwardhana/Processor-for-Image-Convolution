@@ -23,6 +23,8 @@ reg [1:0] state = 2'b0;
 reg start = 1'b0;
 reg [31:0] A;
 reg [31:0] B;
+reg [31:0] reset_signal;
+reg [31:0] incac_signal;
 reg [32:0] temp;
 reg [63:0] product,a_temp;
 reg [15:0] shift_count;
@@ -33,6 +35,8 @@ integer i;
 always @(posedge clk) begin
     if (enable) begin
         start <= 1'b1;
+	reset_signal=32'b0;
+	incac_signal=32'b1;
         A <= A_bus;
         B <= B_bus;
     end
@@ -94,13 +98,13 @@ always @(posedge clk) begin
 
                 PASSBTOC : C_bus <= B;
 
-                INCAC : C_bus <= A + 1;
+                INCAC : C_bus <= A+incac_signal;
 
-                DECAC : C_bus <= A - 1;
+                DECAC : C_bus <= A - 32'b1;
 
-                RESET : C_bus <= 32'b0;
+                RESET : C_bus <= reset_signal;
 
-                default : C_bus <= 32'b1;
+                default : C_bus <= 32'b0;
             endcase
         end
    // end
