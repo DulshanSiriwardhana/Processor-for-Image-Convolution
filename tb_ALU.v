@@ -55,6 +55,8 @@ module ALU_32bit_tb;
     #10; // Wait for a few clock cycles
     Control = 4'b1001; // RESET operation
     #10; // Wait for a few clock cycles
+    Control = 4'b0111; // INAC operation
+    #10; // Wait for a few clock cycles
 
     // End simulation
     $finish;

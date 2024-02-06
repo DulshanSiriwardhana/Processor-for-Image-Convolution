@@ -42,21 +42,15 @@ always @(posedge clk) begin
     end
 end
 
-// always @(negedge clk) begin
- //   if (start) begin
- //       case (state)
-  //          2'b00 : state <= 2'b01;
-    //        2'b01 : state <= 2'b10;
-    //        2'b10 : state <= 2'b11;
-    //        2'b11 : state <= 2'b00;
-     //       default : state <= state;
-     //   endcase
-   // end
-// end
+always @(posedge clk)
+        if (enable==1'b1)
+            begin
+            state<=state+1;          
+            end   
 
 always @(posedge clk) begin
     if (start) begin
-      //  if (state == 2'b11) begin
+        if (state == 2'b11) begin
             case (Control)
                 ADD : begin
                     temp = A + B;
@@ -98,16 +92,16 @@ always @(posedge clk) begin
 
                 PASSBTOC : C_bus <= B;
 
-                INCAC : C_bus <= A+incac_signal;
+                INCAC : C_bus<=A+1;
 
-                DECAC : C_bus <= A - 32'b1;
+                DECAC : C_bus <= A -1;
 
                 RESET : C_bus <= reset_signal;
 
-                default : C_bus <= 32'b0;
+                default : C_bus <= C_bus;
             endcase
         end
-   // end
+    end
 end
 
 endmodule

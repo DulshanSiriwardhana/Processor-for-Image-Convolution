@@ -3,9 +3,12 @@
 
 module Processor(
     input en,
-    input clk   
+    input clk,
+input r_en 
+  
     );
-
+// test aded
+wire [7:0] test_ram_out;
 
     // used in Instruction_Ram
     wire [5:0] instruction_address;
@@ -61,7 +64,7 @@ module Processor(
 
 
 control_unit CU (
-    .clk(clk_div),
+    .clk(clk),
     .enable(en),
     .Z_flag(z_flag),
     .addr(control_signals[37:32]),
@@ -100,16 +103,26 @@ control_unit CU (
         .enable(en),
         .w_en(control_signals[26]),
         .write_en(control_signals[6]),
-        .read_en(control_signals[7]),
+         .read_en(control_signals[7]),
+	//.read_en(r_en),
         .data_out(mdr_out),
         .data_in(C_bus),
-        .DRAM_in(DRam_in),
+        .DRAM_in(test_ram_out ),
         .DRAM_out(DRam_out)
     );
-
+Ram2 RAM(
+        .clk(clk),
+        .w_en(control_signals[6]),
+        .r_en(control_signals[7]),
+	.r_en(r_en),
+       // .done(complete),
+        .address(data_addr),
+        .data_in(DRam_out), //maximum value is 256 (8 bits)
+        .data_out(test_ram_out)
+    );
 
      Register AC(
-        .clk(clk_div),
+        .clk(clk),
         .w_en(control_signals[9]),
         .data_in(C_bus),
         .data_out(A_bus)
@@ -118,7 +131,7 @@ control_unit CU (
 
     ALU_32bit ALU(
         .enable(en),
-        .clk(clk_div),   //added clk divider otherwise 4 operations in 1 clock cycle
+        .clk(clk),   //added clk divider otherwise 4 operations in 1 clock cycle
         .A_bus(A_bus),
         .B_bus(B_bus),
         .C_bus(C_bus),
@@ -290,15 +303,7 @@ control_unit CU (
 
   
 
-    Ram2 RAM(
-        .clk(clk),
-        .w_en(control_signals[6]),
-        .r_en(control_signals[7]),
-        .done(complete),
-        .address(data_addr),
-        .data_in(DRam_out), //maximum value is 256 (8 bits)
-        .data_out(DRam_in)
-    );
+    
    
     clk_divider cd(
         .clk(clk),

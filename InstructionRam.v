@@ -78,7 +78,7 @@ module Instruction_Ram(
         inst_ram[7]     = {MVACI, 10'd0};
         inst_ram[8]     = {MVACMAR, 10'd0};
         inst_ram[9]     = {LDAC, 10'd0};
-        inst_ram[10]     = {MVACK1, 10'd0};
+        inst_ram[10]    = {MVACK1, 10'd0};
 
         inst_ram[11]    = {MVIAC, 10'd0};
         inst_ram[12]    = {INAC, 10'd0};
@@ -140,7 +140,7 @@ module Instruction_Ram(
         inst_ram[58]    = { MVACP2, 10'd0};
         inst_ram[59]    = { ADDI, 10'd0};
         inst_ram[60]    = { MVACP3, 10'd0};
-        inst_ram[61]    = { LDIDP, 10'd910};                    //Immediate data
+        inst_ram[61]    = { LDIDP, 10'd910};    //Immediate data
         inst_ram[62]    = { CLAC, 10'd0};
         inst_ram[63]    = { MVACCV, 10'd0};
 
