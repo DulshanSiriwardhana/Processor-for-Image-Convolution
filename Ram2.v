@@ -8,7 +8,9 @@ module Ram2 (
   input [7:0] data_in,
   output reg [7:0] data_out
 );
-
+integer file;
+ integer i;
+  integer data;
   reg [7:0] ram[0:4095];
 
   initial begin
@@ -22,6 +24,21 @@ module Ram2 (
     ram[6] = 8'b11010111;
     ram[7] = 8'b11010110;
     ram[8] = 8'b11111111;
+
+file = $fopen("C:\\Users\\User\\OneDrive\\Desktop\\5th Sem\\HDL\\Project\\Processor-for-Image-Convolution\\Image.txt", "r");
+ 	
+       
+ for (i = 9; i < 2**12; i = i + 1) begin
+       data=0;
+      if ($feof(file) == 0) begin
+        $fscanf(file, "%b\n", data);
+        ram[i] = data;
+      end else begin
+        $display("End of file reached");
+        $fclose(file);
+
+      end
+    end
 
     // Add more initializations if needed
   end

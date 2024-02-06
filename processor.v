@@ -3,15 +3,15 @@
 
 module Processor(
     input en,
-    input clk,
-input r_en 
+    input clk
+
   
     );
 // test aded
 wire [7:0] test_ram_out;
 
     // used in Instruction_Ram
-    wire [5:0] instruction_address;
+    wire [8:0] instruction_address;
     wire [15:0] instruction_out_memory;
    
     /////////// used in Control Unit
@@ -20,7 +20,7 @@ wire [7:0] test_ram_out;
     wire [37:0] control_signals;
 
     ///////////// USED IN MDR
-    wire [7:0] DRam_in;
+   // wire [7:0] DRam_in;
     wire [31:0] mdr_out;
     wire [7:0]  DRam_out;
 	
@@ -64,7 +64,7 @@ wire [7:0] test_ram_out;
 
 
 control_unit CU (
-    .clk(clk),
+    .clk(clk_div),
     .enable(en),
     .Z_flag(z_flag),
     .addr(control_signals[37:32]),
@@ -104,7 +104,7 @@ control_unit CU (
         .w_en(control_signals[26]),
         .write_en(control_signals[6]),
          .read_en(control_signals[7]),
-	//.read_en(r_en),
+	
         .data_out(mdr_out),
         .data_in(C_bus),
         .DRAM_in(test_ram_out ),
@@ -114,8 +114,7 @@ Ram2 RAM(
         .clk(clk),
         .w_en(control_signals[6]),
         .r_en(control_signals[7]),
-	.r_en(r_en),
-       // .done(complete),
+	
         .address(data_addr),
         .data_in(DRam_out), //maximum value is 256 (8 bits)
         .data_out(test_ram_out)

@@ -8,7 +8,7 @@ module PCounter(
     input complete,
     input inc,
     input [31:0] data_in,
-    output reg [5:0] instruction_address //input to instruction register and B bus mux
+    output reg [8:0] instruction_address //input to instruction register and B bus mux
     );
 
 
@@ -19,7 +19,7 @@ module PCounter(
    
      initial
         begin
-            instruction_address=6'd0;   
+            instruction_address=9'd0;   
         end
    
     always @(posedge clk)
