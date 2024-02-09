@@ -19,13 +19,14 @@ parameter INCAC = 4'b0111;
 parameter DECAC = 4'b1000;
 parameter RESET = 4'b1001;
 
-reg [1:0] state = 2'b0;
+reg [2:0] state = 3'b0;
 reg start = 1'b0;
 reg [31:0] A;
 reg [31:0] B;
 reg [31:0] reset_signal;
 reg [31:0] incac_signal;
 reg [32:0] temp;
+reg [31:0] temp1;
 reg [63:0] product,a_temp;
 reg [15:0] shift_count;
 reg [31:0] remainder;
@@ -42,15 +43,15 @@ always @(posedge clk) begin
     end
 end
 
-always @(posedge clk)
-        if (enable==1'b1)
+ always @(posedge clk)
+       if (enable==1'b1)
             begin
-            state<=state+1;          
+           state<=state+1;          
             end   
 
 always @(posedge clk) begin
     if (start) begin
-        if (state == 2'b11) begin
+      if (state == 3'b010) begin
             case (Control)
                 ADD : begin
                     temp = A + B;
@@ -59,8 +60,14 @@ always @(posedge clk) begin
 
                 SUB : begin
                     temp = A + (-B);
-                    C_bus = temp[31:0];
-                end
+			//temp = A + 32'b1;
+                     C_bus = temp[31:0];
+		if (temp == 32'b0) begin
+        		 Z_flag = 0;
+    		end else begin
+       		 Z_flag = 1;
+    		end
+               end
 
                 MUL : begin
             	    a_temp ={32'b0,A_bus[31:0]};//a_temp=32'b0;
@@ -77,20 +84,22 @@ always @(posedge clk) begin
                 end
 
                 MOD : begin
-                    if (B != 0)
-                        remainder = A;
-                    else
-                        remainder = 32'b0;
+                   // if (B != 0)
+                    //    remainder = A;
+                    //else
+                     //   remainder = 32'b0;
 
-                    while (remainder >= B)
-                        remainder = remainder - B;
+                   // while (remainder >= B)
+                    //    remainder = remainder - B;
+		remainder = A[4:0] - (A[4:0] >> 4) * 30;
 
-                    C_bus = remainder;
+                    assign C_bus = A[4:0] - (A[4:0] >> 4) * 30;
                 end
 
                 PASSATOC : C_bus <= A;
 
-                PASSBTOC : C_bus <= B;
+                PASSBTOC :  C_bus<=B;
+		
 
                 INCAC : C_bus<=A+1;
 
@@ -101,7 +110,7 @@ always @(posedge clk) begin
                 default : C_bus <= C_bus;
             endcase
         end
-    end
+   end
 end
 
 endmodule

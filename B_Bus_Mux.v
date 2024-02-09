@@ -52,7 +52,9 @@ module B_Bus_Mux(
 	    5'b01111: Bus_Out <= CV;
 	    5'b10000: Bus_Out <= I;
             5'b10011 : Bus_Out <= {26'b0,PC};
-            default : Bus_Out <= 32'b0;
+           // default : Bus_Out <= 32'b0;
+	   default : Bus_Out <= Bus_Out;
+
             endcase
          end         
 endmodule

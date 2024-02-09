@@ -243,29 +243,33 @@ module Instruction_Ram(
 
         inst_ram[139]    = { LDII, 10'd29};                       //Immediate data
         inst_ram[140]    = { MVP1AC, 10'd0};
-       // inst_ram[141]    = { MOD30, 10'd0};
-        inst_ram[141]    = { SUBI, 10'd0};
-        inst_ram[142]    = { JUMPZ, 10'd159};            //Jump address
-        inst_ram[143]    = { MVP1AC, 10'd0}; 
-        inst_ram[144]    = { INAC, 10'd0};
+        inst_ram[141]    = { MOD30, 10'd0};
+        inst_ram[142]    = { SUBI, 10'd0};
+        inst_ram[143]    = { JUMPZ, 10'd159};            //Jump address
+        inst_ram[144]    = { MVP1AC, 10'd0}; 
         inst_ram[145]    = { INAC, 10'd0};
-        inst_ram[146]    = { MVACP1, 10'd0};
-        inst_ram[147]    = { MVP2AC, 10'd0}; 
-        inst_ram[148]    = { INAC, 10'd0};
+        inst_ram[146]    = { INAC, 10'd0};
+        inst_ram[147]    = { MVACP1, 10'd0};
+        inst_ram[148]    = { MVP2AC, 10'd0}; 
         inst_ram[149]    = { INAC, 10'd0};
-        inst_ram[150]    = { MVACP2, 10'd0};
-        inst_ram[151]    = { MVP3AC, 10'd0};
-        inst_ram[152]    = { INAC, 10'd0};
+        inst_ram[150]    = { INAC, 10'd0};
+        inst_ram[151]    = { MVACP2, 10'd0};
+        inst_ram[152]    = { MVP3AC, 10'd0};
         inst_ram[153]    = { INAC, 10'd0};
-        inst_ram[154]    = { MVACP3, 10'd0}; 
-        inst_ram[155]    = { MVDPAC, 10'd0};
-        inst_ram[156]    = { INAC, 10'd0};
-        inst_ram[157]    = { INAC, 10'd0}; 
-        inst_ram[158]    = { MVACDP, 10'd0};
+        inst_ram[154]    = { INAC, 10'd0};
+        inst_ram[155]    = { MVACP3, 10'd0}; 
+        inst_ram[156]    = { MVDPAC, 10'd0};
+        inst_ram[157]    = { INAC, 10'd0};
+        inst_ram[158]    = { INAC, 10'd0}; 
+        inst_ram[159]    = { MVACDP, 10'd0};
 
-        inst_ram[160]    = { LDII, 10'd869};          //L3      //Immediate data
-        inst_ram[161]    = { MVDPAC, 10'd0};
-        inst_ram[162]    = { SUBI, 10'd0};
+      //  inst_ram[160]    = { LDII, 10'd869};          //L3      //Immediate data
+       // inst_ram[161]    = { MVDPAC, 10'd0};
+        inst_ram[160]    = { MVDPAC, 10'd0};
+	inst_ram[161]    = { LDII, 10'd869};          //L3      //Immediate data
+
+	inst_ram[162]    = { SUBI, 10'd0};
+        
         inst_ram[163]    = { JUMPNZ, 10'd63};     //Jump address
         inst_ram[164]    = { NOP, 10'd0};              //L2
 

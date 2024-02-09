@@ -32,7 +32,7 @@ module PCounter(
                 begin
                     if(w_en==1)
                         begin
-                            instruction_address <= data_in[5:0];
+                            instruction_address <= data_in[8:0];
                         end
                      else if (inc==1)
                          begin
