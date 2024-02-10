@@ -19,7 +19,7 @@ parameter INCAC = 4'b0111;
 parameter DECAC = 4'b1000;
 parameter RESET = 4'b1001;
 
-reg [2:0] state = 3'b0;
+reg [1:0] state = 2'b0;
 reg start = 1'b0;
 reg [31:0] A;
 reg [31:0] B;
@@ -43,25 +43,26 @@ always @(posedge clk) begin
     end
 end
 
- always @(posedge clk)
+ always @(posedge clk) begin
        if (enable==1'b1)
             begin
            state<=state+1;          
             end   
-
+end
 always @(posedge clk) begin
     if (start) begin
-      if (state == 3'b010) begin
+      if (state == 2'b11) begin
+	    state<=2'b00;
             case (Control)
                 ADD : begin
                     temp = A + B;
-                    C_bus = temp[31:0];
+                    assign C_bus = temp[31:0];
                 end
 
                 SUB : begin
                     temp = A + (-B);
 			//temp = A + 32'b1;
-                     C_bus = temp[31:0];
+                     assign C_bus = temp[31:0];
 		if (temp == 32'b0) begin
         		 Z_flag = 0;
     		end else begin
@@ -93,19 +94,19 @@ always @(posedge clk) begin
                     //    remainder = remainder - B;
 		remainder = A[4:0] - (A[4:0] >> 4) * 30;
 
-                    assign C_bus = A[4:0] - (A[4:0] >> 4) * 30;
+                    assign  C_bus = A[4:0] - (A[4:0] >> 4) * 30;
                 end
 
-                PASSATOC : C_bus <= A;
+                PASSATOC : assign C_bus = A;
 
-                PASSBTOC :  C_bus<=B;
+                PASSBTOC :  assign C_bus =B;
 		
 
-                INCAC : C_bus<=A+1;
+                INCAC : assign C_bus=A+1;
 
-                DECAC : C_bus <= A -1;
+                DECAC : assign C_bus = A -1;
 
-                RESET : C_bus <= reset_signal;
+                RESET : assign C_bus = reset_signal;
 
                 default : C_bus <= C_bus;
             endcase

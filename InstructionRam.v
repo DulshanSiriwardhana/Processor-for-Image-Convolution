@@ -136,11 +136,11 @@ module Instruction_Ram(
         inst_ram[54]    = { INAC, 10'd0};
         inst_ram[55]    = { MVACP1, 10'd0};
         inst_ram[56]    = { LDII, 10'd30};	//Immediate data
-        inst_ram[57]    = { ADDI, 10'd0};                            
+        inst_ram[57]    = { ADDI, 10'd0};       //corrected                    
         inst_ram[58]    = { MVACP2, 10'd0};
         inst_ram[59]    = { ADDI, 10'd0};
         inst_ram[60]    = { MVACP3, 10'd0};
-        inst_ram[61]    = { LDIDP, 10'd910};    //Immediate data
+        inst_ram[61]    = { LDIDP, 10'd910};    //Immediate data  //corrected
         inst_ram[62]    = { CLAC, 10'd0};
         inst_ram[63]    = { MVACCV, 10'd0};
 
@@ -237,12 +237,13 @@ module Instruction_Ram(
 
         inst_ram[135]    = { MVDPAC, 10'd0};
         inst_ram[136]    = { MVACMAR, 10'd0};
-        inst_ram[137]    = { MVCVAC, 10'd0};
-        inst_ram[138]    = { STAC, 10'd0};
+        inst_ram[137]    = { MVCVAC, 10'd0};  //* no error but no change 
+        inst_ram[138]    = { STAC, 10'd0};   // loading last 8 digits of zeros  // stac2 check again
 
 
-        inst_ram[139]    = { LDII, 10'd29};                       //Immediate data
-        inst_ram[140]    = { MVP1AC, 10'd0};
+     //   inst_ram[139]    = { LDII, 10'd29};      //Immediate data  not loading to I bus but loaded to B bus
+       inst_ram[139]    = { LDIDP, 10'd29};
+ 	inst_ram[140]    = { MVP1AC, 10'd0};
         inst_ram[141]    = { MOD30, 10'd0};
         inst_ram[142]    = { SUBI, 10'd0};
         inst_ram[143]    = { JUMPZ, 10'd159};            //Jump address

@@ -59,6 +59,7 @@ wire [7:0] test_ram_out;
 
     // clock divider
     wire clk_div;
+    wire clk_div_alu;
 
 
 
@@ -308,4 +309,9 @@ Ram2 RAM(
         .clk(clk),
         .clk_div(clk_div)
         );
+//clk_divider_ALU cd_alu(
+ //       .clk(clk),
+  //      .clk_div(clk_div_alu)
+  //      );
+
 endmodule
