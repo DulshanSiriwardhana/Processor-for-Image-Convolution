@@ -131,7 +131,7 @@ Ram2 RAM(
 
     ALU_32bit ALU(
         .enable(en),
-        .clk(clk),   //added clk divider otherwise 4 operations in 1 clock cycle
+        .clk(clk_div_alu),   //added clk divider otherwise 4 operations in 1 clock cycle
         .A_bus(A_bus),
         .B_bus(B_bus),
         .C_bus(C_bus),
@@ -309,9 +309,9 @@ Ram2 RAM(
         .clk(clk),
         .clk_div(clk_div)
         );
-//clk_divider_ALU cd_alu(
- //       .clk(clk),
-  //      .clk_div(clk_div_alu)
-  //      );
+clk_divider_ALU cd_alu(
+       .clk(clk),
+        .clk_div(clk_div_alu)
+        );
 
 endmodule

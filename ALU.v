@@ -43,16 +43,29 @@ always @(posedge clk) begin
     end
 end
 
- always @(posedge clk) begin
-       if (enable==1'b1)
-            begin
-           state<=state+1;          
-            end   
-end
+ //always @(posedge clk) begin
+    //   if (state == 2'b00 | state ==2'b01 | state ==2'b10)
+            
+      //     state=state+1;          
+         
+//end
+
+always@ ( negedge clk )
+ begin
+ if ( start ) begin
+ case ( state )
+ 2'b00 : state = 2'b01 ;
+ 2'b01 : state = 2'b10 ;
+ 2'b10 : state = 2'b11 ;
+ 2'b11 : state = 2'b00 ;
+ default : state = state ;
+ endcase
+ end
+end
 always @(posedge clk) begin
     if (start) begin
-      if (state == 2'b11) begin
-	    state<=2'b00;
+     // if (state == 2'b11) begin
+	    //state<=2'b00;
             case (Control)
                 ADD : begin
                     temp = A + B;
@@ -94,7 +107,7 @@ always @(posedge clk) begin
                     //    remainder = remainder - B;
 		remainder = A[4:0] - (A[4:0] >> 4) * 30;
 
-                    assign  C_bus = A[4:0] - (A[4:0] >> 4) * 30;
+                    assign  C_bus =remainder;
                 end
 
                 PASSATOC : assign C_bus = A;
@@ -110,7 +123,7 @@ always @(posedge clk) begin
 
                 default : C_bus <= C_bus;
             endcase
-        end
+       // end
    end
 end
 

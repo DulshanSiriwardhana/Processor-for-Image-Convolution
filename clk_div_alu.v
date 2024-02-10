@@ -4,8 +4,8 @@ input clk,
 output clk_div
 );
 reg [3:0]count=4'd0;
-parameter limit=4'd2;
-reg out=0;
+parameter limit=4'd4;
+reg out=1;
 assign clk_div=out;
 always @(posedge clk)
 begin

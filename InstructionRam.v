@@ -230,7 +230,7 @@ module Instruction_Ram(
         inst_ram[130]    = { MVACP3, 10'd0};
         inst_ram[131]    = { LDAC, 10'd0};
         inst_ram[132]    = { MULK8, 10'd0}; 
-        inst_ram[133]    = { ADDCV, 10'd0};
+        inst_ram[133]    = { ADDCV, 10'd0};   // 
         inst_ram[134]    = { MVACCV, 10'd0};
 
 
@@ -241,8 +241,8 @@ module Instruction_Ram(
         inst_ram[138]    = { STAC, 10'd0};   // loading last 8 digits of zeros  // stac2 check again
 
 
-     //   inst_ram[139]    = { LDII, 10'd29};      //Immediate data  not loading to I bus but loaded to B bus
-       inst_ram[139]    = { LDIDP, 10'd29};
+        inst_ram[139]    = { LDII, 10'd29};      //Immediate data  not loading to I bus but loaded to B bus
+        
  	inst_ram[140]    = { MVP1AC, 10'd0};
         inst_ram[141]    = { MOD30, 10'd0};
         inst_ram[142]    = { SUBI, 10'd0};
