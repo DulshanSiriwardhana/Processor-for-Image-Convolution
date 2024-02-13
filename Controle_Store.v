@@ -158,9 +158,10 @@ ROM[54] = 38'b110111_0110_0000000000000000001_000_0_10001; //JMPZY1 Z = 1
 ROM[55] = 38'b111000_0101_0010000000000000000_000_0_00000; //JMPZY2
 ROM[56] = 38'b111001_0000_0000000000000000000_000_0_00000; //JMPZY2
 ROM[57] = 38'b000000_1001_0000000000000000001_000_0_00000; //JMPZY2
+ROM[59] = 38'b000000_1000_0000000000000000001_000_0_00000; //DECAC
 //ROM[57] = 38'b111010_0110_0000000000000000000_000_0_00000; //LDII2
 //ROM[58] = 38'b110010_0000_0000000000000000001_100_0_00000; //LDII2
-//
+//sim:/Processor/z_flag sim:/Processor/test_ram_out sim:/Processor/P3_bus sim:/Processor/P2_bus sim:/Processor/P1_bus sim:/Processor/mdr_out sim:/Processor/mbru_out sim:/Processor/mar_out sim:/Processor/K8_bus sim:/Processor/K7_bus sim:/Processor/K6_bus sim:/Processor/K5_bus sim:/Processor/K4_bus sim:/Processor/K3_bus sim:/Processor/K2_bus sim:/Processor/K1_bus sim:/Processor/K0_bus sim:/Processor/instruction_out_memory sim:/Processor/instruction_out_MBRU sim:/Processor/instruction_address sim:/Processor/I_bus sim:/Processor/en sim:/Processor/DRam_out sim:/Processor/DP_bus sim:/Processor/data_addr sim:/Processor/CV_bus sim:/Processor/control_signals sim:/Processor/complete sim:/Processor/clk_div_alu sim:/Processor/clk_div sim:/Processor/clk sim:/Processor/C_bus sim:/Processor/B_bus sim:/Processor/A_bus 
 //ROM[59] = 38'b110111_0110_0000000000000000001_100_0_00000; //LDII2
 end
 

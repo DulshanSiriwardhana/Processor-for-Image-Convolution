@@ -7,7 +7,7 @@ module Instruction_Ram(
 
 
    
-    parameter inst_count = 165;
+    parameter inst_count = 200;
     reg [15:0] inst_ram [inst_count:0];
    
    
@@ -58,6 +58,7 @@ module Instruction_Ram(
 	parameter NOP		=   6'd46;
 	parameter JUMPNZ	=   6'd47;
 	parameter JUMPZ		=   6'd52;
+	parameter DECAC         =   6'd59;
 
 
       
@@ -148,7 +149,7 @@ module Instruction_Ram(
         inst_ram[64]    = { MVP1AC, 10'd0};                //L1
         inst_ram[65]    = { MVACMAR, 10'd0};
         inst_ram[66]    = { INAC, 10'd0};
-        inst_ram[67]    = { MVACP1, 10'd0};
+        inst_ram[67]    = { MVACP1, 10'd0};  //p1 = 10
         inst_ram[68]    = { LDAC, 10'd0};
         inst_ram[69]    = { MULK0, 10'd0};
         inst_ram[70]    = { MVACCV, 10'd0};
@@ -177,7 +178,7 @@ module Instruction_Ram(
         inst_ram[87]    = { MVP1AC, 10'd0};
         inst_ram[88]    = { MVACMAR, 10'd0};
         inst_ram[89]    = { INAC, 10'd0};
-        inst_ram[90]    = { MVACP1, 10'd0};
+        inst_ram[90]    = { MVACP1, 10'd0}; //p1=11
         inst_ram[91]    = { LDAC, 10'd0};
         inst_ram[92]    = { MULK1, 10'd0}; 
         inst_ram[93]    = { ADDCV, 10'd0};
@@ -209,70 +210,87 @@ module Instruction_Ram(
         inst_ram[111]    = { MVP1AC, 10'd0};
         inst_ram[112]    = { MVACMAR, 10'd0};
         inst_ram[113]    = { INAC, 10'd0};
-        inst_ram[114]    = { MVACP1, 10'd0};
-        inst_ram[115]    = { LDAC, 10'd0};
-        inst_ram[116]    = { MULK2, 10'd0}; 
-        inst_ram[117]    = { ADDCV, 10'd0};
-        inst_ram[118]    = { MVACCV, 10'd0};
+        //inst_ram[114]    = { MVACP1, 10'd0};
+        inst_ram[114]    = { LDAC, 10'd0};
+        inst_ram[115]    = { MULK2, 10'd0}; 
+        inst_ram[116]    = { ADDCV, 10'd0};
+        inst_ram[117]    = { MVACCV, 10'd0};
 
-        inst_ram[119]    = { MVP2AC, 10'd0};
-        inst_ram[120]    = { MVACMAR, 10'd0};
-        inst_ram[121]    = { INAC, 10'd0};
-        inst_ram[122]    = { MVACP2, 10'd0};
-        inst_ram[123]    = { LDAC, 10'd0};
-        inst_ram[124]    = { MULK5, 10'd0};
-        inst_ram[125]    = { ADDCV, 10'd0};
-        inst_ram[126]    = { MVACCV, 10'd0};
+        inst_ram[118]    = { MVP2AC, 10'd0};
+        inst_ram[119]    = { MVACMAR, 10'd0};
+        inst_ram[120]    = { INAC, 10'd0};
+        //inst_ram[122]    = { MVACP2, 10'd0};
+        inst_ram[121]    = { LDAC, 10'd0};
+        inst_ram[122]    = { MULK5, 10'd0};
+        inst_ram[123]    = { ADDCV, 10'd0};
+        inst_ram[124]    = { MVACCV, 10'd0};
 
-        inst_ram[127]    = { MVP3AC, 10'd0};
-        inst_ram[128]    = { MVACMAR, 10'd0};
-        inst_ram[129]    = { INAC, 10'd0};
-        inst_ram[130]    = { MVACP3, 10'd0};
-        inst_ram[131]    = { LDAC, 10'd0};
-        inst_ram[132]    = { MULK8, 10'd0}; 
-        inst_ram[133]    = { ADDCV, 10'd0};   // 
-        inst_ram[134]    = { MVACCV, 10'd0};
+        inst_ram[125]    = { MVP3AC, 10'd0};
+        inst_ram[126]    = { MVACMAR, 10'd0};
+        inst_ram[127]    = { INAC, 10'd0};
+        //inst_ram[130]    = { MVACP3, 10'd0};
+        inst_ram[128]    = { LDAC, 10'd0};
+        inst_ram[129]    = { MULK8, 10'd0}; 
+        inst_ram[130]    = { ADDCV, 10'd0};   // 
+        inst_ram[131]    = { MVACCV, 10'd0};
 
+	inst_ram[132]    = { MVP1AC, 10'd0};  //changed
+	inst_ram[133]    = { DECAC, 10'd0};
+	inst_ram[134]    = { MVACP1, 10'd0};
 
+	inst_ram[135]    = { MVP2AC, 10'd0};  //changed
+	inst_ram[136]    = { DECAC, 10'd0};
+	inst_ram[137]    = { MVACP2, 10'd0};
 
-        inst_ram[135]    = { MVDPAC, 10'd0};
-        inst_ram[136]    = { MVACMAR, 10'd0};
-        inst_ram[137]    = { MVCVAC, 10'd0};  //* no error but no change 
-        inst_ram[138]    = { STAC, 10'd0};   // loading last 8 digits of zeros  // stac2 check again
+	inst_ram[138]    = { MVP3AC, 10'd0};  //changed
+	inst_ram[139]    = { DECAC, 10'd0};
+	inst_ram[140]    = { MVACP3, 10'd0};
+ 
+        inst_ram[141]    = { MVDPAC, 10'd0};
+        inst_ram[142]    = { MVACMAR, 10'd0};
+	
+	inst_ram[143]       = {INAC,10'd0};  // incremented the data ram
+	inst_ram[144]       = {MVACDP, 10'd0};
 
+        inst_ram[145]    = { MVCVAC, 10'd0};  //* no error but no change 
+        inst_ram[146]    = { STAC, 10'd0};   // loading last 8 digits of zeros  // stac2 check again
 
-        inst_ram[139]    = { LDII, 10'd29};      //Immediate data  not loading to I bus but loaded to B bus
+	
+        inst_ram[147]    = { LDII, 10'd7};      //Immediate data  not loading to I bus but loaded to B bus
         
- 	inst_ram[140]    = { MVP1AC, 10'd0};
-        inst_ram[141]    = { MOD30, 10'd0};
-        inst_ram[142]    = { SUBI, 10'd0};
-        inst_ram[143]    = { JUMPZ, 10'd159};            //Jump address
-        inst_ram[144]    = { MVP1AC, 10'd0}; 
-        inst_ram[145]    = { INAC, 10'd0};
-        inst_ram[146]    = { INAC, 10'd0};
-        inst_ram[147]    = { MVACP1, 10'd0};
-        inst_ram[148]    = { MVP2AC, 10'd0}; 
-        inst_ram[149]    = { INAC, 10'd0};
-        inst_ram[150]    = { INAC, 10'd0};
-        inst_ram[151]    = { MVACP2, 10'd0};
-        inst_ram[152]    = { MVP3AC, 10'd0};
+ 	inst_ram[148]    = { MVP1AC, 10'd0};
+        inst_ram[149]    = { MOD30, 10'd0};
+        inst_ram[150]    = { SUBI, 10'd0};
+        inst_ram[151]    = { JUMPZ, 10'd169};            //Jump address
+        inst_ram[152]    = { MVP1AC, 10'd0}; 
         inst_ram[153]    = { INAC, 10'd0};
         inst_ram[154]    = { INAC, 10'd0};
-        inst_ram[155]    = { MVACP3, 10'd0}; 
-        inst_ram[156]    = { MVDPAC, 10'd0};
+        inst_ram[155]    = { MVACP1, 10'd0};
+        inst_ram[156]    = { MVP2AC, 10'd0}; 
         inst_ram[157]    = { INAC, 10'd0};
-        inst_ram[158]    = { INAC, 10'd0}; 
-        inst_ram[159]    = { MVACDP, 10'd0};
+        inst_ram[158]    = { INAC, 10'd0};
+        inst_ram[159]    = { MVACP2, 10'd0};
+        inst_ram[160]    = { MVP3AC, 10'd0};
+        inst_ram[161]    = { INAC, 10'd0};
+        inst_ram[162]    = { INAC, 10'd0};
+        inst_ram[163]    = { MVACP3, 10'd0}; 
+        inst_ram[164]    = { MVDPAC, 10'd0};
+        inst_ram[165]    = { INAC, 10'd0};
+        inst_ram[166]    = { INAC, 10'd0}; 
+	inst_ram[167]    = { INAC, 10'd0};  //changed 
+        inst_ram[168]    = { MVACDP, 10'd0};
 
       //  inst_ram[160]    = { LDII, 10'd869};          //L3      //Immediate data
        // inst_ram[161]    = { MVDPAC, 10'd0};
-        inst_ram[160]    = { MVDPAC, 10'd0};
-	inst_ram[161]    = { LDII, 10'd869};          //L3      //Immediate data
+        //inst_ram[160]    = { MVDPAC, 10'd0};
+	inst_ram[169]       = {LDII, 10'd827}; //827
+	inst_ram[170]       = { SUBI, 10'd0};
+	inst_ram[171]    = { LDII, 10'd869};   //869       //L3      //Immediate data
 
-	inst_ram[162]    = { SUBI, 10'd0};
+	inst_ram[172]    = { SUBI, 10'd0};
         
-        inst_ram[163]    = { JUMPNZ, 10'd63};     //Jump address
-        inst_ram[164]    = { NOP, 10'd0};              //L2
+        inst_ram[173]    = { JUMPNZ, 10'd63};     //Jump address
+        inst_ram[174]    = { NOP, 10'd0};              //L2
 
 
 

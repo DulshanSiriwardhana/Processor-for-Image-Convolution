@@ -30,6 +30,7 @@ reg [31:0] temp1;
 reg [63:0] product,a_temp;
 reg [15:0] shift_count;
 reg [31:0] remainder;
+reg [31:0] counter = 32'b00000000000000000000000000011110;
 reg [31:0] sign_changer = -32'b1;
 integer i;
 
@@ -98,15 +99,13 @@ always @(posedge clk) begin
                 end
 
                 MOD : begin
-                   // if (B != 0)
-                    //    remainder = A;
-                    //else
-                     //   remainder = 32'b0;
-
-                   // while (remainder >= B)
-                    //    remainder = remainder - B;
-		remainder = A[4:0] - (A[4:0] >> 4) * 30;
-
+                   
+                    
+			remainder=A;
+                    while (remainder >= counter)
+                        remainder = remainder - counter;
+		//remainder = A[4:0] - (A[4:0] >> 4) * 30;
+			//remainder=A%30;
                     assign  C_bus =remainder;
                 end
 
