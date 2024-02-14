@@ -115,7 +115,7 @@ Ram2 RAM(
         .clk(clk),
         .w_en(control_signals[6]),
         .r_en(control_signals[7]),
-	
+	.done(complete),
         .address(data_addr),
         .data_in(DRam_out), //maximum value is 256 (8 bits)
         .data_out(test_ram_out)
