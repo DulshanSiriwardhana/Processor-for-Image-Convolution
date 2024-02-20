@@ -19,15 +19,7 @@ integer file_out;
 
   initial begin
     // Initialize RAM with some values
-    ram[0] = 8'b11010000;
-    ram[1] = 8'b11010001;
-    ram[2] = 8'b11010010;
-    ram[3] = 8'b11010011;
-    ram[4] = 8'b11010100;
-    ram[5] = 8'b11011000;
-    ram[6] = 8'b11010111;
-    ram[7] = 8'b11010110;
-    ram[8] = 8'b11111111;
+    
     index=10'd910;
 
 file = $fopen("C:\\Users\\User\\OneDrive\\Desktop\\5th Sem\\HDL\\Project\\Processor-for-Image-Convolution\\Image.txt", "r");
@@ -36,7 +28,7 @@ file_out = $fopen("C:\\Users\\User\\OneDrive\\Desktop\\5th Sem\\HDL\\Project\\Pr
   
 
      
- for (i = 9; i < 2**12; i = i + 1) begin
+ for (i = 0; i < 2**12; i = i + 1) begin
        data=0;
       if ($feof(file) == 0) begin
         $fscanf(file, "%b\n", data);
