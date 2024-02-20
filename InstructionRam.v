@@ -8,6 +8,7 @@ module Instruction_Ram(
 
    
     parameter inst_count = 200;
+    parameter inst_count = 200;
     reg [15:0] inst_ram [inst_count:0];
    
    
@@ -58,6 +59,7 @@ module Instruction_Ram(
 	parameter NOP		=   6'd46;
 	parameter JUMPNZ	=   6'd47;
 	parameter JUMPZ		=   6'd52;
+	parameter DECAC         =   6'd59;
 	parameter DECAC         =   6'd59;
 
 
@@ -150,6 +152,7 @@ module Instruction_Ram(
         inst_ram[65]    = { MVACMAR, 10'd0};
         inst_ram[66]    = { INAC, 10'd0};
         inst_ram[67]    = { MVACP1, 10'd0};  //p1 = 10
+        inst_ram[67]    = { MVACP1, 10'd0};  //p1 = 10
         inst_ram[68]    = { LDAC, 10'd0};
         inst_ram[69]    = { MULK0, 10'd0};
         inst_ram[70]    = { MVACCV, 10'd0};
@@ -178,6 +181,7 @@ module Instruction_Ram(
         inst_ram[87]    = { MVP1AC, 10'd0};
         inst_ram[88]    = { MVACMAR, 10'd0};
         inst_ram[89]    = { INAC, 10'd0};
+        inst_ram[90]    = { MVACP1, 10'd0}; //p1=11
         inst_ram[90]    = { MVACP1, 10'd0}; //p1=11
         inst_ram[91]    = { LDAC, 10'd0};
         inst_ram[92]    = { MULK1, 10'd0}; 
@@ -215,6 +219,11 @@ module Instruction_Ram(
         inst_ram[115]    = { MULK2, 10'd0}; 
         inst_ram[116]    = { ADDCV, 10'd0};
         inst_ram[117]    = { MVACCV, 10'd0};
+        //inst_ram[114]    = { MVACP1, 10'd0};
+        inst_ram[114]    = { LDAC, 10'd0};
+        inst_ram[115]    = { MULK2, 10'd0}; 
+        inst_ram[116]    = { ADDCV, 10'd0};
+        inst_ram[117]    = { MVACCV, 10'd0};
 
         inst_ram[118]    = { MVP2AC, 10'd0};
         inst_ram[119]    = { MVACMAR, 10'd0};
@@ -224,7 +233,23 @@ module Instruction_Ram(
         inst_ram[122]    = { MULK5, 10'd0};
         inst_ram[123]    = { ADDCV, 10'd0};
         inst_ram[124]    = { MVACCV, 10'd0};
+        inst_ram[118]    = { MVP2AC, 10'd0};
+        inst_ram[119]    = { MVACMAR, 10'd0};
+        inst_ram[120]    = { INAC, 10'd0};
+        //inst_ram[122]    = { MVACP2, 10'd0};
+        inst_ram[121]    = { LDAC, 10'd0};
+        inst_ram[122]    = { MULK5, 10'd0};
+        inst_ram[123]    = { ADDCV, 10'd0};
+        inst_ram[124]    = { MVACCV, 10'd0};
 
+        inst_ram[125]    = { MVP3AC, 10'd0};
+        inst_ram[126]    = { MVACMAR, 10'd0};
+        inst_ram[127]    = { INAC, 10'd0};
+        //inst_ram[130]    = { MVACP3, 10'd0};
+        inst_ram[128]    = { LDAC, 10'd0};
+        inst_ram[129]    = { MULK8, 10'd0}; 
+        inst_ram[130]    = { ADDCV, 10'd0};   // 
+        inst_ram[131]    = { MVACCV, 10'd0};
         inst_ram[125]    = { MVP3AC, 10'd0};
         inst_ram[126]    = { MVACMAR, 10'd0};
         inst_ram[127]    = { INAC, 10'd0};
